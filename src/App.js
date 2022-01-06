@@ -1,29 +1,34 @@
 import React from "react";
 import './App.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route, Switch} from "react-router-dom";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import HeaderComponent from "./components/HeaderComponent";
+import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
 import FooterComponent from "./components/FooterComponent";
+
 
 function App() {
     return (
         <div>
-            <Router>
-            <HeaderComponent/>
+            <Router >
+                <HeaderComponent/>
                 <div className="container">
                     <Routes>
-                        <Route path="/" element={<ListEmployeeComponent/>}></Route>
+                        <Route path="/" exact element={<ListEmployeeComponent/>}></Route>
+
                         <Route path="/employees" element={<ListEmployeeComponent/>}></Route>
+
+                        <Route path="/add-employee" element={<CreateEmployeeComponent/>}></Route>
+
                     </Routes>
                 </div>
                 <FooterComponent/>
             </Router>
         </div>
+
     )
 }
-
 export default App;
-
 
 
 //conexao sem rota
@@ -34,3 +39,5 @@ export default App;
 //     </div>
 //     <FooterComponent/>
 // </div>
+
+
