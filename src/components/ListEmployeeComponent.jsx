@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import EmployeeService from "../services/EmployeeService";
+import {Link} from "react-router-dom";
 
 
 
@@ -11,7 +12,7 @@ class ListEmployeeComponent extends Component {
         this.state = {
             employees: []
         }
-        this.addEmployee = this.addEmployee.bind(this);
+        // this.addEmployee = this.addEmployee.bind(this);
     }
 
     componentDidMount() {
@@ -20,19 +21,22 @@ class ListEmployeeComponent extends Component {
         })
     }
 
-    addEmployee(){
-        this.props.history.push('/add-employee');
-    }
+    // addEmployee(){
+    //     this.props.history.push('/add-employee');
+    // }
+
 
     render() {
         return (
             <div>
                 <h2 className="text-center">Employees List</h2>
                 <div>
-                    <button className="btn btn-primary" onClick={this.addEmployee}>Add Employee</button>
+                    {/*<button className="btn btn-primary" onClick={this.addEmployee}>Add Employee</button>   */}
+                    <Link className="btn btn-primary" to="/add-employee">Add Employee</Link>
                 </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
+
 
                         <thead>
                         <tr>
