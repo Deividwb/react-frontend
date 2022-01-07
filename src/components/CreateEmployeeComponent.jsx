@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from "react-router-dom";
+import EmployeeService from "../services/EmployeeService";
 
 class CreateEmployeeComponent extends Component {
     constructor(props) {
@@ -18,6 +19,10 @@ class CreateEmployeeComponent extends Component {
         e.preventDefault();
         let employee = {firstName: this.state.firstName,lastName: this.state.lastName,emailId: this.state.emailId};
         console.log('employee =>' + JSON.stringify(employee));
+
+        EmployeeService.creatEmployees(employee).then(res =>{
+            //this.props.history.push('employees');
+        })
     }
 
 
@@ -63,7 +68,8 @@ class CreateEmployeeComponent extends Component {
                                         <input placeholder="Email Address" name="emailId" className="form-control"
                                                value={this.state.emailId} onChange={this.changeEmailHandler}/>
                                     </div>
-                                    <button className="btn btn-success" onClick={this.saveEmployee}>Save</button>
+                                    {/*<button className="btn btn-success" onClick={this.saveEmployee}>Save</button>*/}
+                                    <Link className="btn btn-success" to="/employees">Save</Link>
                                     {/*<button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>*/}
                                     <Link className="btn btn-danger" to="/employees" style={{marginLeft:"10px"}}>Cancel</Link>
 
