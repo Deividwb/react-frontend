@@ -19,11 +19,16 @@ class ListEmployeeComponent extends Component {
         EmployeeService.getEmployees().then((res) => {
             this.setState({employees: res.data});
         })
+        EmployeeService.upDateEmployee().then((res) => {
+            this.setState({employees: res.data});
+        })
     }
 
     // addEmployee(){
     //     this.props.history.push('/add-employee');
     // }
+    upDateEmployee(){
+    }
 
 
     render() {
@@ -43,7 +48,7 @@ class ListEmployeeComponent extends Component {
                             <th>Employee Firts Name</th>
                             <th>Employee Last Name</th>
                             <th>Employee Email id</th>
-                            <th>Employee Actions</th>
+                            <th>Actions</th>
                         </tr>
 
                         </thead>
@@ -56,6 +61,9 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
+                                        <div>
+                                        <td><Link className="btn btn-outline-danger" to="/add-employee" >UpDate</Link></td>
+                                        </div>
                                     </tr>
                             )
                         }
