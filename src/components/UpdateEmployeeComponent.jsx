@@ -2,16 +2,20 @@ import React, {Component} from 'react';
 import EmployeeService from "../services/EmployeeService";
 import {Link} from "react-router-dom";
 
+
 class UpdateEmployeeComponent extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            id: this.props.match.params.id,
+            // id: this.props.match.params.id,
             firstName: '',
             lastName: '',
             emailId: ''
         }
+        this.changeFirstNameHandler = this.changeFirstNameHandler.bind(this);
+        this.changeLastNameHandler = this.changeLastNameHandler.bind(this);
+        this.changeEmailHandler = this.changeEmailHandler.bind(this);
     }
         componentDidMount(){
             EmployeeService.getEmployeeById(this.state.id).then((res)=>{
@@ -77,8 +81,8 @@ class UpdateEmployeeComponent extends Component {
                                         <input placeholder="Email Address" name="emailId" className="form-control"
                                                value={this.state.emailId} onChange={this.changeEmailHandler}/>
                                     </div>
-                                    {/*<button className="btn btn-success" onClick={this.saveEmployee}>Save</button>*/}
-                                    <Link className="btn btn-success" to="update-employee">Save</Link>
+                                    {/*<button className="btn btn-success" onClick={this.updateEmployee}>Save</button>*/}
+                                    <Link className="btn btn-success" to={`${this.updateEmployee}`}>Save</Link>
                                     {/*<button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft:"10px"}}>Cancel</button>*/}
                                     <Link className="btn btn-danger" to="/employees" style={{marginLeft:"10px"}}>Cancel</Link>
 

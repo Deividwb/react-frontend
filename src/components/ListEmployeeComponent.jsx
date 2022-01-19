@@ -12,12 +12,13 @@ class ListEmployeeComponent extends Component {
         this.state = {
             employees: []
         }
-        // this.addEmployee = this.addEmployee.bind(this);
-        // this.editEmployee = this.editEmployee.bind(this);
+         // this.addEmployee = this.addEmployee.bind(this);
+         // this.editEmployee = this.editEmployee.bind(this);
     }
-    // editEmployee(id){
-    //     this.props.history.push(`/update-employee/${id}`);
-    // }
+     // editEmployee(id){
+     //     this.props.history.push(`/update-employee/${id}`);
+     // }
+
 
     componentDidMount() {
         EmployeeService.getEmployees().then((res) => {
@@ -61,7 +62,8 @@ class ListEmployeeComponent extends Component {
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
                                         {/*<button onClick={()=>this.editEmployee(employee.id)} className="btn btn-info">Update</button>*/}
-                                        <td><Link className="btn btn-outline-danger" to="/update-employee/:${id}" >Update</Link></td>
+
+                                        <td><Link className="btn btn-outline-danger" to={`/update-employee/${employee.id}`} >Update</Link></td>
 
                                     </tr>
                             )

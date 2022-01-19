@@ -1,6 +1,6 @@
 import React from "react";
 import './App.css';
-import {BrowserRouter as Router, Routes, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import ListEmployeeComponent from "./components/ListEmployeeComponent";
 import HeaderComponent from "./components/HeaderComponent";
 import CreateEmployeeComponent from "./components/CreateEmployeeComponent";
